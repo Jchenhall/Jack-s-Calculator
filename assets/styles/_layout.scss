@@ -1,0 +1,85 @@
+@import "_variability.scss";
+@import "_typography.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+   
+  font-family: $primaryfont-family;
+  font-size: 20px;
+}
+
+//linear-gradient(235deg,#89ff00,#010615,#00bcd4) no-repeat;
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // background: rgb(101,45,250);
+  // background: -moz-linear-gradient(80deg, rgba(101,45,250,1) 0%, rgba(121,51,222,1) 29%, rgba(244,87,48,1) 52%, rgba(244,48,48,1) 94%);
+  // background: -webkit-linear-gradient(80deg, rgba(101,45,250,1) 0%, rgba(121,51,222,1) 29%, rgba(244,87,48,1) 52%, rgba(244,48,48,1) 94%);
+  // background: linear-gradient(80deg, rgba(101,45,250,1) 0%, rgba(121,51,222,1) 29%, rgba(244,87,48,1) 52%, rgba(244,48,48,1) 94%);
+  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#652dfa",endColorstr="#f43030",GradientType=1);
+background-image: url(../images/forest1.jpg);
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin shadow {
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.5), 10px 10px 30px rgba(black, 0.4);
+}
+@mixin shadow-button{
+  box-shadow: -6px -6px 9px rgba(0,0,0,0.5), 6px 6px 9px rgba(black, 0.4);
+}
+@mixin shadow-inset {
+  box-shadow: inset -6px -6px 9px #fff, inset 6px 6px 9px rgba(black, 0.4);
+}
+@mixin shadow-button-inset {
+  box-shadow: inset -6px -6px 9px rgba(255, 255, 255, 0.068), inset 6px 6px 9px rgba(black, 0.4);
+}
+@mixin shadow-blue {
+  box-shadow: inset -6px -6px 9px rgb(62,148,190), inset 6px 6px 9px rgba(black, 0.4);
+}
+
+main {
+  @include shadow;
+  padding: 2rem;
+  border-radius: 30px;
+  backdrop-filter: blur(5px);
+  background: radial-gradient(at 50% 0%, rgba(0,0,0,0,), rgba(255,255,255,0.3));
+  input, button {
+    outline: none;
+  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type=number] {
+  -moz-appearance:textfield;
+}
+input {
+  @include shadow-inset;
+  width: 320px;
+  height: 60px;
+  padding: 16px 32px;
+  text-align: right;
+  border: none;
+  border-radius: 30px;
+  text-shadow: -1px -1px 2px #fff, 2px 2px 2px rgba(#000, 0.4);
+
+}
+h1 {
+text-align: center;
+color: #fff;
+font-size: 25px;
+font-weight: bold;
+padding-bottom: 20px;
+//text-shadow: -1px -1px 2px #fff, 2px 2px 2px rgba(#000, 0.4);;
+}
+}
