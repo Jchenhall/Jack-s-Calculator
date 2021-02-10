@@ -29,22 +29,28 @@ main {
 main input, main button {
   outline: none;
 }
-main input::-webkit-outer-spin-button,
-main input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-main input[type=number] {
-  -moz-appearance: textfield;
-}
-main input {
+main .output {
   box-shadow: inset -6px -6px 9px #fff, inset 6px 6px 9px rgba(0, 0, 0, 0.4);
-  width: 320px;
-  height: 60px;
-  padding: 16px 32px;
-  text-align: right;
-  border: none;
+  background: #e9e9e9;
+  grid-column: 1/-1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
   border-radius: 30px;
-  text-shadow: -1px -1px 2px #fff, 2px 2px 2px rgba(0, 0, 0, 0.4);
+  width: 400px;
+  height: 150px;
+}
+main .output .previous-operand {
+  color: rgba(75, 75, 75, 0.75);
+  font-size: 1rem;
+}
+main .output .current-operand {
+  color: black;
+  font-size: 2rem;
 }
 main h1 {
   text-align: center;
