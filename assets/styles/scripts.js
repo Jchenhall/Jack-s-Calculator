@@ -15,13 +15,15 @@ class Calculator {
         this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
 
+    //the return function is a check to stop multiple ..... from being placed
     appendNumber(number) {
-        if (number === '.' && this.currentOperand.includes('.')) return //is a check to stop multiple ..... from being placed
+        if (number === '.' && this.currentOperand.includes('.')) return 
         this.currentOperand = this.currentOperand.toString() + number.toString()
     }
 
+    //the return function is a check to stop operations happeneing unless numbers are in slot
     chooseOperation(operation){
-        if (this.currentOperand === '') return //Is a check to stop operations happeneing unless numbers are in slot
+        if (this.currentOperand === '') return 
         if (this.previousOperand !== '') {
             this.compute()
         }
@@ -48,9 +50,6 @@ class Calculator {
             case '/':
                 computation = prev / current
                 break
-            // case '%':
-            //     computation = current * 0.01 
-            //     break
             default:
                 return
         }
@@ -77,7 +76,7 @@ getDisplayNumber(number) {
     }
 }
 
-
+//list of constant variables
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
@@ -89,6 +88,7 @@ const darkmodeButton = document.querySelector('[data-darkmode]')
 
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
 
+//tied all computations to corrisponding html buttons
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
@@ -117,8 +117,8 @@ delButton.addEventListener('click', button => {
     calculator.updateDisplay()
 })
 
-// const day = document.querySelector('.output')
-// const night = document.querySelector('.outputnight')
+
+//allows background to change
 
 let isdarkmode = false;
 darkmodeButton.addEventListener("click", button => {
@@ -133,7 +133,7 @@ if (isdarkmode) {
 }
 });
 
-
+//allows for darkmode
 darkmodeButton.addEventListener("click", button => {
 document.querySelectorAll('.nightmode').forEach(ele=>{
     ele.classList.toggle('night');
