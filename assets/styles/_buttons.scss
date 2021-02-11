@@ -8,7 +8,7 @@
     grid-gap: 0.8rem;
     margin-top: 20px;
   }
-  button {
+   button {
     @include shadow-button;
     width: 60px;
     height: 60px;
@@ -23,14 +23,31 @@
   button:active {
     @include shadow-button-inset;
   }
+
+  button.nightmode.night {
+    color: rgb(246, 250, 252);
+  }
+
   .key, .equal{
     background-color:  rgb(62,148,190);
     color: #e9e9e9;
   
+  }
+
+  .key.nightmode.night, .equal.nightmode.night{
+    background-color:  rgb(184, 27, 6);
+    color:rgb(208, 211, 25);
   }
   .key:hover, .key:active, .equal:hover, .equal:active {
     background: rgb(64, 189, 252)
   }
   .key:active, .equal:active{
     @include shadow-blue;
+  }
+  .key.nightmode.night:hover, .equal.nightmode.night:hover {
+    background-color:  rgb(230, 57, 34);
+  }
+
+  .key.nightmode.night:active, .equal.nightmode.night:active {
+@include shadow-red;
   }

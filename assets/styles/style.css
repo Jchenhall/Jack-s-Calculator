@@ -29,7 +29,7 @@ main {
 main input, main button {
   outline: none;
 }
-main .output {
+main .output.nightmode {
   box-shadow: inset -6px -6px 9px #fff, inset 6px 6px 9px rgba(0, 0, 0, 0.4);
   background: #e9e9e9;
   grid-column: 1/-1;
@@ -44,20 +44,36 @@ main .output {
   width: 400px;
   height: 150px;
 }
-main .output .previous-operand {
-  color: rgba(75, 75, 75, 0.75);
+main .output.nightmode.night {
+  background: #2b2a2a;
+  box-shadow: inset -6px -6px 9px rgba(255, 255, 255, 0.068), inset 6px 6px 9px rgba(0, 0, 0, 0.4);
+}
+main .previous-operand {
+  color: rgba(153, 149, 149, 0.75);
   font-size: 1rem;
 }
-main .output .current-operand {
-  color: black;
+main .previous-operand.nightmode.night {
+  color: rgba(117, 107, 107, 0.75);
+  font-size: 1rem;
+}
+main .current-operand {
+  color: #1a1919;
+  font-size: 2rem;
+}
+main .current-operand.nightmode.night {
+  color: #eee3e3;
   font-size: 2rem;
 }
 main h1 {
   text-align: center;
-  color: #fff;
+  color: black;
   font-size: 25px;
   font-weight: bold;
   padding-bottom: 20px;
+}
+
+.h1.nightmode.night {
+  color: white;
 }
 
 .calKeys {
@@ -85,9 +101,18 @@ button:active {
   box-shadow: inset -6px -6px 9px rgba(255, 255, 255, 0.068), inset 6px 6px 9px rgba(0, 0, 0, 0.4);
 }
 
+button.nightmode.night {
+  color: #f6fafc;
+}
+
 .key, .equal {
   background-color: #3e94be;
   color: #e9e9e9;
+}
+
+.key.nightmode.night, .equal.nightmode.night {
+  background-color: #b81b06;
+  color: #d0d319;
 }
 
 .key:hover, .key:active, .equal:hover, .equal:active {
@@ -96,4 +121,12 @@ button:active {
 
 .key:active, .equal:active {
   box-shadow: inset -6px -6px 9px #3e94be, inset 6px 6px 9px rgba(0, 0, 0, 0.4);
+}
+
+.key.nightmode.night:hover, .equal.nightmode.night:hover {
+  background-color: #e63922;
+}
+
+.key.nightmode.night:active, .equal.nightmode.night:active {
+  box-shadow: inset -6px -6px 9px #631409, inset 6px 6px 9px rgba(0, 0, 0, 0.4);
 }
