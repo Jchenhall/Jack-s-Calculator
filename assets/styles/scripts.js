@@ -1,3 +1,12 @@
+const numberButtons = document.querySelectorAll('[data-number]')                    //<<< global list of variables
+const operationButtons = document.querySelectorAll('[data-operation]')
+const equalsButton = document.querySelector('[data-equals]')
+const clearButton = document.querySelector('[data-all-clear]')
+const delButton = document.querySelector('[data-del]')
+const topLineTextElement = document.querySelector('[data-top-line]')
+const bottomLineTextElement = document.querySelector('[data-bottom-line]')
+const darkmodeButton = document.querySelector('[data-darkmode]')
+
 class Calculator {
     constructor(topLineTextElement, bottomLineTextElement) {
         this.topLineTextElement = topLineTextElement
@@ -60,7 +69,7 @@ class Calculator {
 
 
 
-getDisplayNumber(number) {                                                          //<<< helper function: allows the displayed number to be a value (called bellow)               
+getDisplayNumber(number) {                                                          //<<< Allows bottom variable to pass to top and keep value to be calculated.               
     return number
 }
 
@@ -76,19 +85,9 @@ getDisplayNumber(number) {                                                      
     }
 }
 
-                                                                                    //<<< list of constant variables
-const numberButtons = document.querySelectorAll('[data-number]')
-const operationButtons = document.querySelectorAll('[data-operation]')
-const equalsButton = document.querySelector('[data-equals]')
-const clearButton = document.querySelector('[data-all-clear]')
-const delButton = document.querySelector('[data-del]')
-const topLineTextElement = document.querySelector('[data-top-line]')
-const bottomLineTextElement = document.querySelector('[data-bottom-line]')
-const darkmodeButton = document.querySelector('[data-darkmode]')
-
 const calculator = new Calculator(topLineTextElement, bottomLineTextElement)        //<<< creates calculator object to hook up the buttons to. 
 
-//tied all computations to corrisponding html buttons
+                                                                                    //<<< tied all computations to corrisponding html buttons
 
 clearButton.addEventListener('click', button => {                                    //<<< removes all variables from display on click
     calculator.clear()
