@@ -18,7 +18,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
+  
   // background: rgb(101,45,250);
   // background: -moz-linear-gradient(80deg, rgba(101,45,250,1) 0%, rgba(121,51,222,1) 29%, rgba(244,87,48,1) 52%, rgba(244,48,48,1) 94%);
   // background: -webkit-linear-gradient(80deg, rgba(101,45,250,1) 0%, rgba(121,51,222,1) 29%, rgba(244,87,48,1) 52%, rgba(244,48,48,1) 94%);
@@ -61,6 +61,7 @@ main {
   input, button {
     outline: none;
   }
+  
 // input::-webkit-outer-spin-button,
 // input::-webkit-inner-spin-button {
 //   -webkit-appearance: none;
@@ -91,6 +92,7 @@ main {
   border-radius: 30px;
   width: 400px;
   height: 150px;
+  
 }
 .output.nightmode.night{
   background: #2b2a2a;

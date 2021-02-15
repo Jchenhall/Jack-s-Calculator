@@ -1,41 +1,41 @@
 class Calculator {
-    constructor(previousOperandTextElement, currentOperandTextElement) {
-        this.previousOperandTextElement = previousOperandTextElement
-        this.currentOperandTextElement = currentOperandTextElement
+    constructor(topLineTextElement, bottomLineTextElement) {
+        this.topLineTextElement = topLineTextElement
+        this.bottomLineTextElement = bottomLineTextElement
         this.clear()
     }
 
     clear() {
-        this.currentOperand =''
-        this.previousOperand =''
+        this.bottomLine =''
+        this.topLine =''
         this.operation = undefined
     }
 
     delete() {
-        this.currentOperand = this.currentOperand.toString().slice(0, -1)
+        this.bottomLine = this.bottomLine.toString().slice(0, -1)
     }
 
     //the return function is a check to stop multiple ..... from being placed
     appendNumber(number) {
-        if (number === '.' && this.currentOperand.includes('.')) return 
-        this.currentOperand = this.currentOperand.toString() + number.toString()
+        if (number === '.' && this.bottomLine.includes('.')) return 
+        this.bottomLine = this.bottomLine.toString() + number.toString()
     }
 
     //the return function is a check to stop operations happeneing unless numbers are in slot
     chooseOperation(operation){
-        if (this.currentOperand === '') return 
-        if (this.previousOperand !== '') {
+        if (this.bottomLine === '') return 
+        if (this.topLine !== '') {
             this.compute()
         }
         this.operation = operation
-        this.previousOperand = this.currentOperand
-        this.currentOperand = ''
+        this.topLine = this.bottomLine
+        this.bottomLine = ''
     }
 
     compute() {
         let computation
-        const prev = parseFloat(this.previousOperand)
-        const current = parseFloat(this.currentOperand)
+        const prev = parseFloat(this.topLine)
+        const current = parseFloat(this.bottomLine)
         if (isNaN(prev) || isNaN(current)) return
         switch (this.operation) {
             case '+':
@@ -53,9 +53,9 @@ class Calculator {
             default:
                 return
         }
-        this.currentOperand = computation
+        this.bottomLine = computation
         this.operation = undefined
-        this.previousOperand = ''
+        this.topLine = ''
     }
 
 
@@ -65,13 +65,13 @@ getDisplayNumber(number) {
 }
 
     updateDisplay () {
-        this.currentOperandTextElement.innerText = 
-        this.getDisplayNumber(this.currentOperand)
+        this.bottomLineTextElement.innerText = 
+        this.getDisplayNumber(this.bottomLine)
         if (this.operation != null) {
-            this.previousOperandTextElement.innerText = 
-            `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`
+            this.topLineTextElement.innerText = 
+            `${this.getDisplayNumber(this.topLine)} ${this.operation}`
         } else {
-            this.previousOperandTextElement.innerText = ''
+            this.topLineTextElement.innerText = ''
         }
     }
 }
@@ -82,11 +82,11 @@ const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const delButton = document.querySelector('[data-del]')
-const previousOperandTextElement = document.querySelector('[data-previous-operand]')
-const currentOperandTextElement = document.querySelector('[data-current-operand]')
+const topLineTextElement = document.querySelector('[data-previous-operand]')
+const bottomLineTextElement = document.querySelector('[data-current-operand]')
 const darkmodeButton = document.querySelector('[data-darkmode]')
 
-const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
+const calculator = new Calculator(topLineTextElement, bottomLineTextElement)
 
 //tied all computations to corrisponding html buttons
 numberButtons.forEach(button => {
