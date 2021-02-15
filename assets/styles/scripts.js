@@ -1,12 +1,12 @@
 class Calculator {
     constructor(topLineTextElement, bottomLineTextElement) {
         this.topLineTextElement = topLineTextElement
-        this.bottomLineTextElement = bottomLineTextElement
+        this.bottomLineTextElement = bottomLineTextElement //sets text element inside calc class
         this.clear()
     }
 
     clear() {
-        this.bottomLine =''
+        this.bottomLine =''                                //clears 
         this.topLine =''
         this.operation = undefined
     }
@@ -16,7 +16,7 @@ class Calculator {
     }
 
     //the return function is a check to stop multiple ..... from being placed
-    appendNumber(number) {
+    addNumber(number) {
         if (number === '.' && this.bottomLine.includes('.')) return 
         this.bottomLine = this.bottomLine.toString() + number.toString()
     }
@@ -91,7 +91,7 @@ const calculator = new Calculator(topLineTextElement, bottomLineTextElement)
 //tied all computations to corrisponding html buttons
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
-        calculator.appendNumber(button.innerText)
+        calculator.addNumber(button.innerText)
         calculator.updateDisplay()
     })
 })
