@@ -1,54 +1,54 @@
 class Calculator {
     constructor(topLineTextElement, bottomLineTextElement) {
         this.topLineTextElement = topLineTextElement
-        this.bottomLineTextElement = bottomLineTextElement //sets text element inside calc class
+        this.bottomLineTextElement = bottomLineTextElement                      //<<< sets text element inside calc class
         this.clear()
     }
 
     clear() {
-        this.bottomLine =''                                //clears 
+        this.bottomLine =''                                                      //<<< clears all variables from display
         this.topLine =''
         this.operation = undefined
     }
 
     delete() {
-        this.bottomLine = this.bottomLine.toString().slice(0, -1)
+        this.bottomLine = this.bottomLine.toString().slice(0, -1)               //<<< removes numbers 1 at a time from right side
     }
 
-    //the return function is a check to stop multiple ..... from being placed
-    addNumber(number) {
-        if (number === '.' && this.bottomLine.includes('.')) return 
-        this.bottomLine = this.bottomLine.toString() + number.toString()
+    
+    addNumber(number) {                                                         //<<< adds a number to the display
+        if (number === '.' && this.bottomLine.includes('.')) return             //if already got . then return func stops multiple . from being placed
+        this.bottomLine = this.bottomLine.toString() + number.toString()        //converts numbers to a string so 1+1 =11 NOT 2!
     }
 
-    //the return function is a check to stop operations happeneing unless numbers are in slot
-    chooseOperation(operation){
-        if (this.bottomLine === '') return 
-        if (this.topLine !== '') {
+    
+    chooseOperation(operation){                                                 //<<< adds an operation to display
+        if (this.bottomLine === '') return                                      //checks to see if there is are numbers in bottom line. if not then stops op from working 
+        if (this.topLine !== '') {                                              //if top line is not an empty string then compute it all as one. 
             this.compute()
         }
-        this.operation = operation
-        this.topLine = this.bottomLine
-        this.bottomLine = ''
+        this.operation = operation                                              //allows calc to know the buttons we used i.e x is *
+        this.topLine = this.bottomLine                                          //pushes the operation and number to top line
+        this.bottomLine = ''                                                    //clears bottom line for next number (2nd half of calc)
     }
 
-    compute() {
-        let computation
-        const prev = parseFloat(this.topLine)
-        const current = parseFloat(this.bottomLine)
-        if (isNaN(prev) || isNaN(current)) return
+    compute() {                                                                //<<< computes number and operation
+        let computation         
+        const topL = parseFloat(this.topLine)                                 // converts from a string to a number  
+        const bottomL = parseFloat(this.bottomLine)
+        if (isNaN(topL) || isNaN(bottomL)) return
         switch (this.operation) {
             case '+':
-                computation = prev + current
+                computation = topL + bottomL
                 break
             case '-':
-                computation = prev - current
+                computation = topL - bottomL
                 break
             case 'x':
-                computation = prev * current
+                computation = topL * bottomL
                 break
             case '/':
-                computation = prev / current
+                computation = topL / bottomL
                 break
             default:
                 return
@@ -60,11 +60,11 @@ class Calculator {
 
 
 
-getDisplayNumber(number) {
+getDisplayNumber(number) {                                                  
     return number
 }
 
-    updateDisplay () {
+    updateDisplay () {                                                          //<<< updates the display
         this.bottomLineTextElement.innerText = 
         this.getDisplayNumber(this.bottomLine)
         if (this.operation != null) {
@@ -82,27 +82,27 @@ const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
 const allClearButton = document.querySelector('[data-all-clear]')
 const delButton = document.querySelector('[data-del]')
-const topLineTextElement = document.querySelector('[data-previous-operand]')
-const bottomLineTextElement = document.querySelector('[data-current-operand]')
+const topLineTextElement = document.querySelector('[data-top-line]')
+const bottomLineTextElement = document.querySelector('[data-bottom-line]')
 const darkmodeButton = document.querySelector('[data-darkmode]')
 
 const calculator = new Calculator(topLineTextElement, bottomLineTextElement)
 
 //tied all computations to corrisponding html buttons
 numberButtons.forEach(button => {
-    button.addEventListener('click', () => {
+    button.addEventListener('click', () => {                //<<< adds a number on click to the display
         calculator.addNumber(button.innerText)
         calculator.updateDisplay()
     })
 })
-operationButtons.forEach(button => {
+operationButtons.forEach(button => {                        //<<< adds an operation on click to the display
     button.addEventListener('click', () => {
         calculator.chooseOperation(button.innerText)
         calculator.updateDisplay()
     })
 })
 
-equalsButton.addEventListener('click', button => {
+equalsButton.addEventListener('click', button => {         //<<< calls compute function to show on the display
     calculator.compute()
     calculator.updateDisplay()
 })

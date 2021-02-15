@@ -99,19 +99,19 @@ main {
   @include shadow-button-inset;
 }
   
-.previous-operand {
+.top-line {
     color: rgba(153, 149, 149, 0.75);
     font-size: 1rem;
   }
-.previous-operand.nightmode.night {
+.top-line.nightmode.night {
   color: rgba(117, 107, 107, 0.75);
   font-size: 1rem;
 }
-.current-operand {
+.bottom-line {
     color: rgb(26, 25, 25);
       font-size: 2rem;
   }
-.current-operand.nightmode.night {
+.bottom-line.nightmode.night {
   color: rgb(238, 227, 227);
   font-size: 2rem;
 }

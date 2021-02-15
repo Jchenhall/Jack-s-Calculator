@@ -48,19 +48,19 @@ main .output.nightmode.night {
   background: #2b2a2a;
   box-shadow: inset -6px -6px 9px rgba(255, 255, 255, 0.068), inset 6px 6px 9px rgba(0, 0, 0, 0.4);
 }
-main .previous-operand {
+main .top-line {
   color: rgba(153, 149, 149, 0.75);
   font-size: 1rem;
 }
-main .previous-operand.nightmode.night {
+main .top-line.nightmode.night {
   color: rgba(117, 107, 107, 0.75);
   font-size: 1rem;
 }
-main .current-operand {
+main .bottom-line {
   color: #1a1919;
   font-size: 2rem;
 }
-main .current-operand.nightmode.night {
+main .bottom-line.nightmode.night {
   color: #eee3e3;
   font-size: 2rem;
 }
