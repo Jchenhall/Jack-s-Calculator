@@ -1,0 +1,23 @@
+{
+  "name": "project1-calc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "e2e": "cypress open",
+    "test": "jest script.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jchenhall/Jack-s-Calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jchenhall/Jack-s-Calculator/issues"
+  },
+  "homepage": "https://github.com/Jchenhall/Jack-s-Calculator#readme",
+  "devDependencies": {
+    "cypress": "^6.5.0"
+  }
+}
