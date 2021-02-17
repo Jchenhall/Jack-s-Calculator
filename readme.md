@@ -1,4 +1,4 @@
-My NeoMorphic Calculator:                       WebDemo link:
+My NeoMorphic Calculator:                       WebDemo link: https://jchenhall.github.io/Jack-s-Calculator/
 
 This calculator uses HTML, CSS and Javascript to function.
 
