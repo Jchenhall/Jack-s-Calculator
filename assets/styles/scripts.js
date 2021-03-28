@@ -48,7 +48,7 @@ class Calculator {
         if (isNaN(topL) || isNaN(bottomL)) return                                   //prevents equal function running if no numbers are typed
         switch (this.operation) {                                             
             case '+':
-                computation = topL + bottomL                                        //<<< if statements to calc code:
+                computation = topL + bottomL                                        //<<< switch statements to calc code:
                 break
             case '-':
                 computation = topL - bottomL
